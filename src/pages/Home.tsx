@@ -4,6 +4,7 @@ import  "../styles/Home.css";
 import Navbar from "../layout/Navbar";
 import TopList from "../components/TopList";
 import FeaturedDish from "../components/FeaturedDish";
+import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
@@ -18,6 +19,8 @@ const Home = () => {
       <Hero />
       <TopList/>
       <FeaturedDish/>
+      <Footer/>
+
     </>
   );
 };
