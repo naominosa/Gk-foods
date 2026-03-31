@@ -2,6 +2,8 @@ import Hero from "../components/Hero";
 import SEO from "../seo/SEO";
 import  "../styles/Home.css";
 import Navbar from "../layout/Navbar";
+import TopList from "../components/TopList";
+import FeaturedDish from "../components/FeaturedDish";
 const Home = () => {
   return (
     <>
@@ -14,8 +16,8 @@ const Home = () => {
 
       </div>
       <Hero />
-
-      {/* <h6>Welcome to GK Foods</h6> */}
+      <TopList/>
+      <FeaturedDish/>
     </>
   );
 };

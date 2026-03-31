@@ -1,0 +1,139 @@
+.food-card {
+  min-width: 280px;
+  max-width: 280px;
+  flex-shrink: 0;
+  background: #f3f5ec;
+  border-radius: 20px;
+
+  padding: 90px 20px 25px; /* ✅ MORE SPACE AT TOP */
+
+  text-align: center;
+  position: relative;
+  transition: 0.3s ease;
+}
+.top-list {
+  overflow: hidden;
+}
+.food-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  position: absolute;
+  top: -70px; /* ✅ PUSH IT UP PROPERLY */
+  left: 50%;
+  transform: translateX(-50%);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: white;
+  padding: 6px;
+}
+.food-content {
+  margin-top: 10px;
+}
+
+.rating {
+  color: orange;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 13px;
+  color: #666;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.price {
+  font-weight: bold;
+  
+}
+
+.add-btn {
+  background: #ff5722;
+  border: none;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+.top-list {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #e6eadc, #f3f5ec);
+}
+
+
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 50px;
+}
+
+.controls button {
+  background: #ff5722;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+} 
+.food-card:hover {
+  transform: translateY(-10px);
+  transition: 0.3s ease;
+}
+
+.card-wrapper.active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.top-list {
+  text-align: center;
+  padding: 40px;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+.controls button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* SLIDER LAYOUT */
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: visible; /* ✅ ALLOW FLOAT */
+}
+
+
+.card-wrapper.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.card-wrapper {
+  transition: all 0.3s ease;
+  transform: scale(0.9);
+}
+
+/* ACTIVE (CENTER CARD POPS) */
+.card-wrapper.active {
+  transform: scale(1.1);
+  z-index: 2;
+}
