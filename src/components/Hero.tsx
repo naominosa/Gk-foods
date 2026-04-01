@@ -13,10 +13,30 @@ const Hero = () => {
           GK Foods brings fresh catering, reliable logistics, and forex services 
           straight to you. Order your favourite dishes today!
         </p>
-        <div className="hero-buttons">
+        {/* <div className="hero-buttons">
           <button className="btn-primary">Order Now</button>
           <button className="btn-secondary">Book Catering</button>
-        </div>
+        </div> */}
+
+        <div className="hero-buttons">
+  {/* Order Now Link */}
+  <a 
+    href="https://wa.me/2348109048272?text=I%20would%20like%20to%20order%20a%20platter" 
+    target="_blank" 
+    rel="noreferrer"
+  >
+    <button className="btn-primary">Order Now</button>
+  </a>
+
+  {/* Book Catering Link */}
+  <a 
+    href="https://wa.me/2348109048272?text=I%20would%20like%20to%20inquire%20about%20your%20catering%20services" 
+    target="_blank" 
+    rel="noreferrer"
+  >
+    <button className="btn-secondary">Book Catering</button>
+  </a>
+</div>
         <div className="hero-stats">
           <div className="hero-stat">
             <span>500+</span>

@@ -141,10 +141,13 @@
 }
 
 /* Middle Section */
+/* Middle Section Container */
 .footer-middle {
   margin-bottom: 2rem;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .discount-badge {
@@ -152,64 +155,66 @@
   margin-bottom: 2rem;
 }
 
+/* The Orange Discount Pill */
 .discount-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  background: linear-gradient(135deg, #ff9f6e, #e76f3c);
-  padding: 0.5rem 1.5rem;
+  background-color: #e76f3c; /* Matches your screenshot's solid orange */
+  padding: 0.8rem 2.5rem;
   border-radius: 50px;
   display: inline-block;
   color: white;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(231, 111, 60, 0.3);
+  box-shadow: 0 0 15px rgba(231, 111, 60, 0.4);
 }
 
 .newsletter {
-  max-width: 500px;
+  width: 100%;
+  max-width: 600px; /* Slightly wider to match design */
   margin: 0 auto;
 }
 
+/* The Input Container */
 .newsletter-group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border-radius: 60px;
-  padding: 0.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px; /* Creates the spacing around the button */
+  border: 1px solid #e76f3c; /* Orange border from screenshot */
   transition: all 0.3s ease;
 }
 
-.newsletter-group:focus-within {
-  border-color: #e76f3c;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.newsletter-label {
+/* The actual clickable/typeable area */
+.newsletter-input {
   flex: 1;
-  padding: 0.8rem 1.2rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  cursor: text;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  font-size: 0.95rem;
 }
 
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* The "Send Now" Button */
 .send-btn {
-  background: #e76f3c;
+  background: #ff9f6e; /* Lighter peach/orange from screenshot */
   border: none;
-  padding: 0.8rem 1.8rem;
+  padding: 0.8rem 2.5rem;
   border-radius: 50px;
   color: white;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
   white-space: nowrap;
 }
 
 .send-btn:hover {
-  background: #ff9f6e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(231, 111, 60, 0.4);
+  background: #e76f3c;
+  transform: scale(1.02);
 }
 
 /* Bottom Section */
@@ -224,6 +229,8 @@
   margin: 0;
   letter-spacing: 0.5px;
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {

@@ -1,0 +1,38 @@
+.catering-page {
+  padding: 100px 5% 50px; /* Top padding to clear the universal Navbar */
+  text-align: center;
+  background-color: #fff;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 80px; /* Space for the floating card images */
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Style for the selected category */
+.tab.active {
+  background-color: #ff6b35; /* Orange color */
+  color: white;
+  border-color: #ff6b35;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}

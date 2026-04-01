@@ -1,51 +1,150 @@
-.navbar-main{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 80px;
-background:white;
-position:sticky;
-top:0;
-z-index:100;
+/* ===== CONTAINER & LOGO ===== */
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* LOGO */
-
-.logo{
-height:45px;
-cursor:pointer;
+.logo {
+  height: 52px;
+  width: auto;
 }
 
-/* LINKS */
-
-.navbar-links{
-display:flex;
-gap:35px;
-list-style:none;
-align-items:center;
+/* ===== DESKTOP LINKS & HOVER EFFECT ===== */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: center;
 }
 
-.navbar-links a{
-text-decoration:none;
-font-size:16px;
-font-weight:500;
-color:#333;
-padding:8px 18px;
-border-radius:25px;
-transition:all 0.3s ease;
+.navbar-links li a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.25rem;
+  position: relative;
+  transition: color 0.25s ease;
 }
 
-/* hover effect */
-
-.navbar-links a:hover{
-background:#f2f2f2;
+/* Re-adding the Underline Hover Effect */
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 1.25rem;
+  right: 1.25rem;
+  height: 2px;
+  background: #f5a623;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  border-radius: 2px;
 }
 
-/* ACTIVE PAGE */
-
-.navbar-links a.active{
-background:#0f9d8a;
-color:white;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+.navbar-links li a:hover, 
+.navbar-links li a.active {
+  color: #f5a623;
 }
 
+.navbar-links li a:hover::after,
+.navbar-links li a.active::after {
+  transform: scaleX(1);
+}
+
+/* Hamburger/Close Icon */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1001;
+}
+
+/* ===== PREMIUM MOBILE NAVBAR DESIGN ===== */
+@media screen and (max-width: 900px) {
+  .navbar-main {
+    padding: 1rem 2rem;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 280px;
+    height: 100vh;
+    
+    /* BACKGROUND DESIGN: Not plain white anymore */
+    /* Light cream to white gradient for a culinary feel */
+    background: linear-gradient(145deg, #fffcf5 0%, #ffffff 100%);
+    
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-left: 1px solid #f5a623; /* Branded accent line on the edge */
+  }
+
+  .navbar-links.active {
+    right: 0;
+  }
+
+  .navbar-links li {
+    width: 100%;
+    padding: 0 25px;
+  }
+
+  .navbar-links li a {
+    font-size: 1.15rem;
+    display: block;
+    padding: 18px 20px;
+    border-radius: 12px;
+    text-align: left;
+    background: rgba(0,0,0,0.02); /* Very subtle button shape */
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect on mobile buttons */
+  .navbar-links li a:active,
+  .navbar-links li a:hover {
+    background: rgba(245, 166, 35, 0.05);
+    color: #f5a623;
+  }
+
+  /* Specific style for active page on mobile */
+  .navbar-links li a.active {
+    background: #f5a623;
+    color: white;
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  }
+  
+  /* Hide the underline effect on mobile buttons since they are now solid blocks */
+  .navbar-links li a::after {
+    display: none;
+  }
+
+  /* BACKDROP OVERLAY (The area outside the menu) */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px); /* Blurs the website behind the menu */
+    z-index: 999;
+  }
+}

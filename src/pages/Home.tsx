@@ -1,10 +1,10 @@
 import Hero from "../components/Hero";
 import SEO from "../seo/SEO";
 import  "../styles/Home.css";
-import Navbar from "../layout/Navbar";
+// import Navbar from "../layout/Navbar";
 import TopList from "../components/TopList";
 import FeaturedDish from "../components/FeaturedDish";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
@@ -13,13 +13,13 @@ const Home = () => {
         description="GK Foods offers catering and logistics services in Lagos."
       />
       <div>
-<Navbar/>
+{/* <Navbar/> */}
 
       </div>
       <Hero />
       <TopList/>
       <FeaturedDish/>
-      <Footer/>
+      {/* <Footer/> */}
 
     </>
   );

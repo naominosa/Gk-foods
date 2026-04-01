@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiMenuAlt3, HiX } from "react-icons/hi"; // Install react-icons
-import "../styles/global.css";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import "../styles/Navbar.css";
 import logo from "../assets/GKLOGO.png";
 
 const Navbar = () => {
@@ -31,10 +31,7 @@ const Navbar = () => {
           <Link className={location.pathname === "/catering" ? "active" : ""} to="/catering" onClick={closeMenu}>Catering</Link>
         </li>
         <li>
-          <Link className={location.pathname === "/logistics" ? "active" : ""} to="/logistics" onClick={closeMenu}>Logistics</Link>
-        </li>
-        <li>
-          <Link className={location.pathname === "/forex" ? "active" : ""} to="/forex" onClick={closeMenu}>Forex</Link>
+          <Link className={location.pathname === "/AboutUs" ? "active" : ""} to="/AboutUs" onClick={closeMenu}>About Us</Link>
         </li>
         <li>
           <Link className={location.pathname === "/contact" ? "active" : ""} to="/contact" onClick={closeMenu}>Contact</Link>

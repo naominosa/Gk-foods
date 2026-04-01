@@ -1,5 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 import "../styles/Footer.css";
+
+// The URL you extracted from your Mailchimp form code
+const MAILCHIMP_URL = "https://gmail.us6.list-manage.com/subscribe/post?u=783d2c9836edbfe5c7c4009b6&id=993b2c69cd&f_id=00b750e0f0";
+
+// Interface to fix TypeScript errors for the custom form props
+interface CustomFormProps {
+  status: "sending" | "error" | "success" | null;
+  message: string | Error | null;
+  onValidated: (data: { EMAIL: string }) => void;
+}
+
+const CustomForm = ({ status, message, onValidated }: CustomFormProps) => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && email.indexOf("@") > -1) {
+      onValidated({ EMAIL: email });
+    }
+  };
+
+  return (
+    <div className="newsletter">
+      <form className="newsletter-group" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="newsletter-input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit" className="send-btn" disabled={status === "sending"}>
+          {status === "sending" ? "Sending..." : "Send Now"}
+        </button>
+      </form>
+
+      {/* Status Messages */}
+      <div style={{ marginTop: "10px", fontSize: "14px" }}>
+        {status === "sending" && <div style={{ color: "blue" }}>Sending...</div>}
+        {status === "error" && (
+          <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message as string }} />
+        )}
+        {status === "success" && <div style={{ color: "green" }}>Subscribed successfully!</div>}
+      </div>
+    </div>
+  );
+};
 
 const Footer: React.FC = () => {
   return (
@@ -7,7 +56,6 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         {/* Top Section */}
         <div className="footer-top">
-          {/* Services Column */}
           <div className="footer-col">
             <h3>Services</h3>
             <ul>
@@ -17,7 +65,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* About Us Column */}
           <div className="footer-col">
             <h3>About Us</h3>
             <ul>
@@ -27,17 +74,15 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Address Column */}
           <div className="footer-col">
             <h3>Address</h3>
             <address>
-              Morocco,<br />
-              Marrakesh 29<br />
-              Plaza World
+              No17 KAYODE Turna <br />
+              Greenville estate <br />
+              Badore Ajah
             </address>
           </div>
 
-          {/* Our Services Column */}
           <div className="footer-col">
             <h3>Our Services</h3>
             <ul className="services-list">
@@ -48,7 +93,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Stay Connected Column */}
           <div className="footer-col">
             <h3>Stay Connected</h3>
             <div className="social-links">
@@ -69,18 +113,23 @@ const Footer: React.FC = () => {
           <div className="discount-badge">
             <span className="discount-text">Get 20% Discount For You On First Order.</span>
           </div>
-          
-          <div className="newsletter">
-            <div className="newsletter-group">
-              <span className="newsletter-label">Email Address</span>
-              <button className="send-btn">Send Now</button>
-            </div>
-          </div>
+
+          {/* Integrated Mailchimp Component */}
+          <MailchimpSubscribe
+            url={MAILCHIMP_URL}
+            render={({ subscribe, status, message }: any) => (
+              <CustomForm
+                status={status}
+                message={message}
+                onValidated={(formData: any) => subscribe(formData)}
+              />
+            )}
+          />
         </div>
 
         {/* Bottom Section - Copyright */}
         <div className="footer-bottom">
-          <p>Copyright © achraf el gassab 2020 all right reserved</p>
+          <p>Copyright © GK FOODS 2026 all right reserved</p>
         </div>
       </div>
     </footer>
