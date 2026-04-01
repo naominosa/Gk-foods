@@ -21,7 +21,7 @@ const menuData: Record<string, any[]> = {
        rating: "8.8", 
        image: Egusi,
       desc: "Rich melon soup with assorted meat."
-       }
+       },
        { 
       id: 11, 
       title: "Banga Soup & Starch", 
