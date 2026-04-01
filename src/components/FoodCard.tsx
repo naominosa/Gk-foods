@@ -16,6 +16,20 @@ const FoodCard: React.FC<FoodCardProps> = ({
   price,
   rating,
 }) => {
+
+  // Function to handle the WhatsApp redirect
+  const handleWhatsAppOrder = () => {
+    const phoneNumber = "2348109048272"; // Your WhatsApp line
+    
+    // We'll format the message to include the food name and price
+    const message = `Hello GK Foods! 🍲 I'm interested in ordering: *${title}* for ₦${price}. Please let me know the next steps.`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Opens the WhatsApp link in a new tab
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <div className="food-card">
       <img src={image} alt={title} className="food-image" />
@@ -27,7 +41,10 @@ const FoodCard: React.FC<FoodCardProps> = ({
 
         <div className="bottom">
           <span className="price">₦{price}</span>
-          <button className="add-btn">+</button>
+          {/* Added the onClick event here */}
+          <button className="add-btn" onClick={handleWhatsAppOrder}>
+            +
+          </button>
         </div>
       </div>
     </div>

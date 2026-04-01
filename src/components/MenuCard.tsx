@@ -9,21 +9,26 @@ interface MenuCardProps {
 }
 
 const MenuCard = ({ image, rating, title, description, price }: MenuCardProps) => {
-  return (
-    <div className="menu-card">
-      {/* The floating circular image */}
-      <div className="card-image-wrapper">
-        <img src={image} alt={title} className="floating-img" />
-      </div>
+  
+  const handleWhatsAppOrder = () => {
+    const phoneNumber = "2348109048272"; 
+    const message = `Hello GK Foods! I would like to order the *${title}* for ₦${price}. Please provide payment details and delivery timeline.`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
-      <div className="card-content">
+  return (
+    <div className="food-card"> 
+      <img src={image} alt={title} className="food-image" />
+      
+      <div className="food-content">
         <div className="rating">⭐ {rating}</div>
-        <h3 className="card-title">{title}</h3>
-        <p className="card-description">{description}</p>
+        <h3>{title}</h3>
+        <p className="desc">{description}</p>
         
-        <div className="card-footer">
-          <span className="card-price">₦{price}</span>
-          <button className="add-btn">+</button>
+        <div className="bottom">
+          <span className="price">₦{price}</span>
+          <button className="add-btn" onClick={handleWhatsAppOrder}>+</button>
         </div>
       </div>
     </div>
