@@ -60,12 +60,14 @@
   margin: 0;
 }
 
-.footer-col li {
+.footer-col li a{
   margin-bottom: 0.75rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
   opacity: 0.85;
+  color: #e8f0e5;
+  text-decoration: none; 
 }
 
 .footer-col li:hover {

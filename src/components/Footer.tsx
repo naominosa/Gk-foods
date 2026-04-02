@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
           <div className="footer-col">
             <h3>About Us</h3>
             <ul>
-              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/AboutUs">About Us</Link></li>
               <li>
                 <span 
                   style={{ cursor: "pointer" }} 
@@ -88,10 +88,9 @@ const Footer: React.FC = () => {
           <div className="footer-col">
             <h3>Our Services</h3>
             <ul className="services-list">
-              <li><Link to="/contact">Online Booking</Link></li>
-              <li><Link to="/contact">Catering Service</Link></li>
-              <li><Link to="/contact">Membership</Link></li>
-              <li><Link to="/contact">Delivery Service</Link></li>
+              <li><Link to="/Contact">Online Booking</Link></li>
+              <li><Link to="/Contact">Catering Service</Link></li>
+              <li><Link to="/Contact">Membership</Link></li>
             </ul>
           </div>
 
@@ -99,7 +98,7 @@ const Footer: React.FC = () => {
             <h3>Stay Connected</h3>
             <div className="social-links">
               <a href="#" aria-label="Facebook">f</a>
-              <a href="https://instagram.com/yourhandle" aria-label="Instagram">in</a>
+              <a href="https://www.instagram.com/gkfoods_betafood?igsh=ZzlrNXhnODN5ODU=" aria-label="Instagram">in</a>
               <a href="https://wa.me/2348109048272" aria-label="WhatsApp">@</a>
               <a href="#" aria-label="YouTube">▶</a>
             </div>
