@@ -138,8 +138,10 @@
 
 /* ===== MOBILE RESPONSIVE FIXES ===== */
 @media (max-width: 768px) {
+  
   .top-list {
     padding: 60px 15px;
+    -webkit-font-smoothing: antialiased;
   }
   
   .top-list h1 {
@@ -158,16 +160,17 @@
     margin: 30px 0;
   }
   
-  /* Create a scrollable container */
   .slider {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     gap: 20px;
-    padding: 20px 10px;
+    padding: 60px 10px 30px; /* Extra top padding for the floating image */
     margin: 0 -10px;
-    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   
   .slider:active {
@@ -175,10 +178,10 @@
   }
   
   /* Hide scrollbar for cleaner look */
+  
   .slider::-webkit-scrollbar {
     display: none;
   }
-  
   .slider {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -188,20 +191,22 @@
     flex: 0 0 auto;
     width: 100%;
     scroll-snap-align: center;
-    transform: scale(1);
-    opacity: 1;
-    /* filter: blur(0); */
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Force GPU Rendering to prevent blur */
+    transform: translateZ(0); 
+    backface-visibility: hidden;
+    opacity: 1 !important; 
   }
   
-  .card-wrapper:not(.active) {
-    opacity: 0.5;
-    transform: scale(0.9);
+ .card-wrapper:not(.active) {
+    opacity: 0.85; 
+    transform: scale(0.96) translateZ(0);
   }
-  
+
   .card-wrapper.active {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
     opacity: 1;
+    z-index: 10;
   }
   
   /* Center the cards */
