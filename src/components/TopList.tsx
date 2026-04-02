@@ -31,7 +31,7 @@ const foods = [
 ];
 
 const TopList = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   // Fix: Properly type the ref as HTMLDivElement
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -88,14 +88,29 @@ const TopList = () => {
     }
   };
 
-  // Fix: Properly typed useEffect with event listeners
-  useEffect(() => {
-    const slider = sliderRef.current;
-    if (isMobile && slider) {
-      slider.addEventListener('scroll', handleScroll);
-      return () => slider.removeEventListener('scroll', handleScroll);
-    }
-  }, [isMobile, activeIndex]); // Remove handleScroll from dependencies to avoid re-renders
+  // useEffect(() => {
+  //   const slider = sliderRef.current;
+  //   if (isMobile && slider) {
+  //     slider.addEventListener('scroll', handleScroll);
+  //     return () => slider.removeEventListener('scroll', handleScroll);
+  //   }
+  // }, [isMobile, activeIndex]); 
+useEffect(() => {
+  const slider = sliderRef.current;
+  if (!isMobile || !slider) return;
+
+  const onScroll = () => {
+    const scrollPosition = slider.scrollLeft;
+    const cardWidth = slider.children[0]?.clientWidth || 280;
+    const newIndex = Math.round(scrollPosition / (cardWidth + 20));
+
+    setActiveIndex(newIndex);
+  };
+
+  slider.addEventListener("scroll", onScroll);
+
+  return () => slider.removeEventListener("scroll", onScroll);
+}, [isMobile]);
 
   return (
     <section className="top-list">

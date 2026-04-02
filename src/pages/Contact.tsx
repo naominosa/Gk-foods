@@ -388,7 +388,7 @@ function Contact() {
           <div className="faq-grid">
             <div className="faq-item">
               <h3>🍽️ Do you offer catering services?</h3>
-              <p>Yes! We provide full catering services for events of all sizes. Contact us for a customized quote.</p>
+              <p>Yes! We provide full catering services for events of all sizes.</p>
             </div>
             <div className="faq-item">
               <h3>🚚 Do you deliver?</h3>
@@ -400,7 +400,7 @@ function Contact() {
             </div>
             <div className="faq-item">
               <h3>💰 What payment methods do you accept?</h3>
-              <p>We accept bank transfers, credit/debit cards, and cash on delivery for orders under ₦50,000.</p>
+              <p>We accept bank transfers,and cash on delivery for orders under ₦50,000.</p>
             </div>
           </div>
         </div>
