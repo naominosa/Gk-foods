@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import { Link } from "react-router-dom"; // Assuming you are using react-router-dom
+import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 
 const MAILCHIMP_URL = "https://gmail.us6.list-manage.com/subscribe/post?u=783d2c9836edbfe5c7c4009b6&id=993b2c69cd&f_id=00b750e0f0";

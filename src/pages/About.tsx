@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/AboutUs.css";
 import Feast from "../assets/FoodPlatter.jpg";
+import { Link } from "react-router-dom"; 
 
 const AboutUs: React.FC = () => {
   return (
@@ -41,7 +42,11 @@ const AboutUs: React.FC = () => {
     catering to every doorstep.
   </p>
 </div>
+              <Link to="/Catering">
             <button className="flashy-cta">Explore Our Menu</button>
+              
+              </Link> 
+            
           </div>
 
           <div className="story-image-wrapper">
